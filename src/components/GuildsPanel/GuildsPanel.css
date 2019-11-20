@@ -1,0 +1,150 @@
+.GuildsPanel--container {
+  padding: var(--space-sm) 0;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.GuildsPanel--container::-webkit-scrollbar {
+  display: none;
+}
+
+.GuildsPanel--container > *:not(:last-child) {
+  margin-bottom: var(--space-sm);
+}
+
+.GuildsPanel--guild {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.GuildsPanel--guildSlate {
+  background-color: white;
+  display: none;
+}
+
+.GuildsPanel--guild > img {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  transition: border-radius 0.25s ease-in-out;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+.GuildsPanel--guild > img:hover {
+  border-radius: 15px;
+}
+
+.GuildsPanel--guild > img:hover + .GuildsPanel--guildSlate {
+  display: block;
+  width: 4px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.GuildsPanel--guild > img:active {
+  transform: translateY(1px);
+}
+
+.GuildsPanel--guildActive > img {
+  border-radius: 15px;
+}
+
+.GuildsPanel--guildActive > .GuildsPanel--guildSlate,
+.GuildsPanel--guildActive > img:hover + .GuildsPanel--guildSlate {
+  display: block;
+  width: 4px;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.GuildsPanel--addGuild {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.GuildsPanel--addGuild > * {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #43b581;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #36393f;
+  transition: background-color 0.25s ease-in-out,
+    border-radius 0.25s ease-in-out;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+.GuildsPanel--addGuild > *:hover {
+  border-radius: 15px;
+  color: white;
+  background-color: #43b581;
+}
+
+.GuildsPanel--addGuild > *:active {
+  transform: translateY(1px);
+}
+
+.GuildsPanel--tooltip {
+  background-color: black !important;
+  font-family: Whitney, BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif !important;
+  font-size: 14px !important;
+  opacity: 1 !important;
+  border-radius: 5px !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+.GuildsPanel--tooltip:after {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 10000 !important;
+  left: 0 !important;
+  top: 50% !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 5px solid transparent !important;
+  border-right-color: black !important;
+  border-left: 0 !important;
+  margin-top: -5px !important;
+  margin-left: -5px !important;
+}
+
+.GuildsPanel--guildList > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.GuildsPanel--guildActive.GuildsPanel--guildDragged > .GuildsPanel--guildSlate {
+  display: none;
+}
+.GuildsPanel--guildActive.GuildsPanel--guildDragged > img {
+  border-radius: 25px;
+}

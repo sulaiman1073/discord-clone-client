@@ -1,0 +1,86 @@
+.ChannelsPanel--container {
+  padding: var(--space-sm) var(--space-sm);
+  overflow-y: scroll;
+  position: relative;
+}
+
+.ChannelsPanel--container > *:not(:last-child) {
+  margin-bottom: var(--space-xs);
+}
+
+.ChannelsPanel--container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ChannelsPanel--container::-webkit-scrollbar-track {
+  background-color: var(--color-secondary);
+}
+
+.ChannelsPanel--container::-webkit-scrollbar-thumb {
+  background-color: var(--color-quaternary);
+  border-radius: 25px;
+}
+
+.ChannelsPanel--channel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.ChannelsPanel--channel > *:first-child {
+  margin-right: var(--space-xs);
+  color: var(--color-accent4);
+  position: relative;
+  top: 1px;
+}
+
+.ChannelsPanel--channel > p {
+  white-space: nowrap;
+  overflow: hidden;
+  color: white;
+  user-select: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.ChannelsPanel--channelSlate {
+  background-color: white;
+  width: 4px;
+  height: 8px;
+  position: absolute;
+  left: 0;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.ChannelsPanel--channelChecked {
+  opacity: 0.25;
+}
+
+.ChannelsPanel--channelChecked > .ChannelsPanel--channelSlate,
+.ChannelsPanel--channelActive > .ChannelsPanel--channelSlate {
+  display: none;
+}
+
+.ChannelsPanel--channel:hover {
+  background-color: var(--color-primary);
+  opacity: 1;
+}
+
+.ChannelsPanel--channel:active,
+.ChannelsPanel--channelActive:hover {
+  background-color: var(--color-accent3);
+}
+
+.ChannelsPanel--channelActive {
+  background-color: var(--color-accent3);
+  cursor: default;
+  opacity: 1;
+}

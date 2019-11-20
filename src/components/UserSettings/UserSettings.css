@@ -1,0 +1,355 @@
+.UserSettings--container {
+  /* height: 380px; */
+  /* min-height: 380px; */
+  width: 540px;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: #292b2f;
+  background-color: #36393f;
+  display: grid;
+  grid-template-areas:
+    "settings  settings"
+    "themes  logout";
+  grid-template-rows: minmax(3fr) 1fr;
+  grid-gap: 20px;
+}
+
+.UserSettings--container h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+  user-select: none;
+}
+
+.UserSettings--settings {
+  grid-area: settings;
+}
+
+.UserSettings--themes {
+  grid-area: themes;
+  display: flex;
+  flex-direction: column;
+}
+
+.UserSettings--themes > *:first-child {
+  margin-bottom: 10px;
+}
+
+.UserSettings--colors {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.UserSettings--colors > * {
+  flex: 1;
+  cursor: pointer;
+}
+
+.UserSettings--colors > * > * {
+  padding-bottom: 100%;
+  /* height: 50px; */
+  /* width: 50px; */
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.UserSettings--colors > *:active {
+  transform: translateY(1px);
+}
+
+.UserSettings--colors > *:not(:last-child) {
+  margin-right: 10px;
+}
+
+.UserSettings--colors--1 {
+  background-color: #e62020;
+}
+.UserSettings--colors--2 {
+  background-color: #009f7f;
+}
+.UserSettings--colors--3 {
+  background-color: #2243b6;
+}
+
+.UserSettings--logout {
+  grid-area: logout;
+  justify-self: end;
+  align-self: end;
+}
+
+.UserSettings--logout > button {
+  color: #fff;
+  background-color: rgb(240, 71, 71);
+  height: 32px;
+  min-width: 60px;
+  min-height: 32px;
+  transition: background-color 0.25s ease-in-out;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 16px;
+  user-select: none;
+  outline: 0;
+  font-family: Whitney;
+  border: none;
+  cursor: pointer;
+}
+
+.UserSettings--logout > button:hover {
+  background-color: rgb(206, 61, 61);
+}
+
+.UserSettings--logout > button:active {
+  background-color: rgb(189, 55, 55);
+}
+
+.UserSettings--settings {
+  display: flex;
+  flex-direction: column;
+}
+
+.UserSettings--settings > *:first-child {
+  margin-bottom: 10px;
+}
+
+.UserSettings--settingsPanel {
+  background-color: #292b2f;
+  padding: 20px;
+  border: 1px solid #040405;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.UserSettings--settingsPanel > *:not(:last-child) {
+  margin-right: 20px;
+}
+
+.UserSettings--settingsPanel--inputs {
+  flex-grow: 1;
+}
+
+.UserSettings--spinner {
+  position: absolute !important;
+  z-index: 5;
+  bottom: 50px;
+  bottom: 35%;
+  left: 8%;
+}
+
+.UserSettings--settingsPanel--inputs > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.UserSettings--settingsPanel--edit {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.UserSettings--settingsPanel--edit > button {
+  color: #fff;
+  background-color: #7289da;
+  height: 32px;
+  min-width: 60px;
+  min-height: 32px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 16px;
+  user-select: none;
+  outline: 0;
+  font-family: Whitney;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out;
+}
+.UserSettings--settingsPanel--edit > button:hover {
+  background-color: #677bc4;
+}
+.UserSettings--settingsPanel--edit > button:active {
+  background-color: #5b6eae;
+}
+
+.UserSettings--settingsPanel--save {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.UserSettings--settingsPanel--save > *:first-child {
+  color: #fff;
+  height: 32px;
+  min-width: 40px;
+  min-height: 32px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 0px;
+  user-select: none;
+  outline: 0;
+  font-family: Whitney;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out;
+  background-color: transparent;
+  margin-right: 20px;
+}
+.UserSettings--settingsPanel--save > *:first-child:hover {
+  text-decoration: underline;
+}
+.UserSettings--settingsPanel--save > *:last-child {
+  color: #fff;
+  height: 32px;
+  min-width: 60px;
+  min-height: 32px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 16px;
+  user-select: none;
+  outline: 0;
+  font-family: Whitney;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out;
+  background-color: #43b581;
+}
+.UserSettings--settingsPanel--save > *:last-child:hover {
+  background-color: #3ca374;
+}
+.UserSettings--settingsPanel--save > *:last-child:active {
+  background-color: #369167;
+}
+
+.UserSettings--settingsPanel--changePassword {
+  color: #fff;
+  height: 32px;
+  min-width: 40px;
+  min-height: 32px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 0px;
+  user-select: none;
+  outline: 0;
+  font-family: Whitney;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.UserSettings--settingsPanel--changePassword:hover {
+  text-decoration: underline;
+}
+
+.UserSettings--apiError {
+  color: rgb(240, 71, 71);
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.UserSettings--userInfo > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.UserSettings--userInfo > * > *:first-child {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8e9297;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+  user-select: none;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.UserSettings--userInfo > * > *:last-child {
+  font-size: 16px;
+  color: #b9bbbe;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+  font-weight: 400;
+}
+
+.UserSettings--settingsPanel > img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+.UserSettings--spinner {
+  margin: auto 40px auto auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.UserSettings--cube1,
+.UserSettings--cube2 {
+  background-color: #7289da;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: UserSettings--sk-cubemove 1.8s infinite ease-in-out;
+  animation: UserSettings--sk-cubemove 1.8s infinite ease-in-out;
+}
+
+.UserSettings--cube2 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+@-webkit-keyframes UserSettings--sk-cubemove {
+  25% {
+    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+  }
+  50% {
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+  }
+  75% {
+    -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg)
+      scale(0.5);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+  }
+}
+
+@keyframes UserSettings--sk-cubemove {
+  25% {
+    transform: translateX(42px) rotate(-90deg) scale(0.5);
+    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+  }
+  50% {
+    transform: translateX(42px) translateY(42px) rotate(-179deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+  }
+  50.1% {
+    transform: translateX(42px) translateY(42px) rotate(-180deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+  }
+  75% {
+    transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+    -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg)
+      scale(0.5);
+  }
+  100% {
+    transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+  }
+}

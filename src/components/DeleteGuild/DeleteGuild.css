@@ -1,0 +1,102 @@
+.DeleteGuild--container {
+  /* height: 380px; */
+  width: 440px;
+  border-radius: 4px;
+  background-color: #36393f;
+}
+
+.DeleteGuild--container > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.DeleteGuild--container > h3 {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 20px 20px 0 20px;
+}
+
+.DeleteGuild--container > *:nth-child(2) {
+  padding: 0 20px 0 20px;
+}
+
+.DeleteGuild--container > *:nth-child(2) > p {
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #e19517;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.DeleteGuild--container > *:nth-child(2) > p > span {
+  font-weight: bold;
+}
+
+.DeleteGuild--container > *:nth-child(3) {
+  padding: 0 20px 0 20px;
+}
+
+.DeleteGuild--buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #2f3136;
+  padding: 20px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.DeleteGuild--buttons > *:first-child {
+  color: #fff;
+  height: 32px;
+  min-width: 40px;
+  min-height: 32px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 0px;
+  user-select: none;
+  outline: 0;
+  font-family: Whitney;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out;
+  background-color: transparent;
+  margin-right: 20px;
+}
+.DeleteGuild--buttons > *:first-child:hover {
+  text-decoration: underline;
+}
+.DeleteGuild--buttons > *:last-child {
+  color: #fff;
+  height: 32px;
+  min-width: 60px;
+  min-height: 32px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 16px;
+  user-select: none;
+  outline: 0;
+  font-family: Whitney;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out;
+  background-color: #f04747;
+}
+.DeleteGuild--buttons > *:last-child:hover {
+  background-color: #d84040;
+}
+.DeleteGuild--buttons > *:last-child:active {
+  background-color: #c03939;
+}
+
+.DeleteGuild--error {
+  color: #f04747;
+  font-size: 12px;
+  margin-right: 20px;
+  margin-left: 20px;
+}

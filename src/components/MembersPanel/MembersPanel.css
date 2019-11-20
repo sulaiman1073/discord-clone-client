@@ -1,0 +1,113 @@
+.MembersPanel--container {
+  padding: var(--space-md) var(--space-sm);
+  overflow-y: scroll;
+}
+
+.MembersPanel--container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.MembersPanel--container::-webkit-scrollbar-track {
+  background-color: var(--color-secondary);
+}
+
+.MembersPanel--container::-webkit-scrollbar-thumb {
+  background-color: var(--color-quaternary);
+  border-radius: 25px;
+}
+
+.MembersPanel--container > *:not(:last-child) {
+  margin-bottom: var(--space-lg);
+}
+
+.MembersPanel--container > * > *:not(:last-child) {
+  margin-bottom: var(--space-xs);
+}
+
+.MembersPanel--container > * > *:first-child {
+  color: #8e9297;
+  font-size: 12px;
+  font-weight: 600;
+  /* line-height: 16px; */
+  margin-left: var(--space-sm);
+  cursor: default;
+  user-select: none;
+}
+
+.MembersPanel--member {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  user-select: none;
+  color: white;
+}
+
+.MembersPanel--member > p {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.MembersPanel--avatar {
+  margin-right: var(--space-sm);
+  position: relative;
+  height: 35px;
+}
+
+.MembersPanel--avatar > img {
+  cursor: pointer;
+  width: 35px;
+  height: 100%;
+  border-radius: 25px;
+  transition: border-radius 0.25s ease-in-out;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+.MembersPanel--status {
+  background-color: white;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  border: 3px solid var(--color-secondary);
+  /* border: 2px solid red; */
+  position: absolute;
+  /* z-index: 0; */
+  right: -8%;
+  bottom: -5%;
+}
+
+.MembersPanel--statusOnline .MembersPanel--status {
+  background-color: var(--color-statusOnline);
+}
+
+.MembersPanel--statusAway .MembersPanel--status {
+  background-color: var(--color-statusAway);
+}
+
+.MembersPanel--statusBusy .MembersPanel--status {
+  background-color: var(--color-statusBusy);
+}
+
+.MembersPanel--member:hover {
+  background-color: var(--color-primary);
+  opacity: 1;
+}
+
+.MembersPanel--member:active {
+  background-color: var(--color-accent3);
+}
+
+.MembersPanel--offline {
+  opacity: 0.5;
+}

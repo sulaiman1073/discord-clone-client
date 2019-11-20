@@ -1,0 +1,21 @@
+.ChannelHeader--container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--space-md);
+}
+
+.ChannelHeader--container > *:first-child {
+  margin-right: var(--space-sm);
+  color: var(--color-accent4);
+  position: relative;
+  top: 1px;
+}
+
+.ChannelHeader--container > *:last-child {
+  color: white;
+  cursor: default;
+  user-select: none;
+  font-size: 16px;
+  font-weight: 600;
+}

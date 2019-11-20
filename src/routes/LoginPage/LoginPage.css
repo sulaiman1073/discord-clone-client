@@ -1,0 +1,139 @@
+.LoginPage--container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to left bottom, #3d4046, #1e1e23);
+}
+
+.LoginPage--loginBox {
+  background-color: var(--color-primary);
+  padding: 40px;
+  flex-grow: 1;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+}
+.LoginPage--loginBox > *:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.LoginPage--inputContainer {
+  width: 100%;
+}
+
+.LoginPage--inputContainer > *:not(:last-child) {
+  margin-bottom: var(--space-xs);
+}
+
+.LoginPage--loginBox > *:first-child {
+  font-size: 26px;
+  color: white;
+  font-weight: 300 !important;
+}
+.LoginPage--loginBox input,
+.LoginPage--loginBox button {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 3px;
+  color: #dcddde;
+  font-family: Whitney;
+  outline: none;
+}
+
+.LoginPage--loginBox input {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.LoginPage--loginBox input:hover {
+  border-color: #040405;
+}
+.LoginPage--loginBox input:focus {
+  border-color: #7289da;
+}
+
+.LoginPage--loginBox button {
+  background-color: #7289da;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.LoginPage--loginBox button:hover {
+  background-color: #677bc4;
+}
+
+.LoginPage--loginBox button:active {
+  background-color: #5b6dad;
+  border: none;
+  cursor: pointer;
+}
+
+.LoginPage--loginBox button[disabled] {
+  background-color: #8e9297;
+  cursor: not-allowed;
+}
+
+.LoginPage--loginBox p {
+  color: #8e9297;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.LoginPage--container > .LoginPage--loginBox button {
+  margin-bottom: 10px;
+}
+
+.LoginPage--loginBox a {
+  color: #7286d0;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.LoginPage--loginBox span {
+  color: #72767d;
+  font-size: 14px;
+  margin-right: var(--space-xs);
+}
+
+.LoginPage--inputContainer--header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.LoginPage--inputContainer--header > *:nth-child(2) {
+  margin-left: var(--space-sm);
+}
+
+.LoginPage--inputContainer > .LoginPage--inputContainer--header {
+  margin-bottom: 10px;
+}
+
+.LoginPage--inputContainer--header > span {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.LoginPage--error > .LoginPage--inputContainer--header > p,
+.LoginPage--error > .LoginPage--inputContainer--header > span {
+  color: #f04747;
+}
+
+.LoginPage--error input,
+.LoginPage--error input:hover,
+.LoginPage--error input:focus {
+  border-color: #f04747;
+}
+
+.LoginPage--container > .LoginPage--loginBox > .LoginPage--apiError {
+  font-size: 14px;
+  color: #f04747;
+}

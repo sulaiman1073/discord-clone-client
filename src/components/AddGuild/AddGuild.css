@@ -1,0 +1,188 @@
+.AddGuild--container {
+  height: 380px;
+  width: 540px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+.AddGuild--container > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+/* .AddGuild--container > * > *:not(:last-child) {
+  margin-bottom: var(--space-lg);
+} */
+
+.AddGuild--container > * > *:not(:last-child) {
+  padding: var(--space-lg);
+}
+
+.AddGuild--home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.AddGuild--home > *:not(:last-child) {
+  margin-bottom: var(--space-lg);
+}
+
+.AddGuild--home > *:first-child,
+.AddGuild--home > *:last-child {
+  padding: 14px 20px;
+  font-family: Whitney;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: black;
+  color: white;
+  width: 200px;
+  border: none;
+  border-radius: 4px;
+  color: #dcddde;
+  outline: none;
+  cursor: pointer;
+}
+
+.AddGuild--home > *:first-child,
+.AddGuild--createButton {
+  background-color: #7289da;
+  transition: background-color 0.25s ease-in-out;
+}
+.AddGuild--home > *:first-child:hover,
+.AddGuild--createButton:hover {
+  background-color: #677bc4;
+}
+.AddGuild--home > *:last-child,
+.AddGuild--joinButton {
+  background-color: #3ca374;
+  transition: background-color 0.25s ease-in-out;
+}
+.AddGuild--home > *:last-child:hover,
+.AddGuild--joinButton:hover {
+  background-color: #369368;
+}
+
+.AddGuild--bottomPanel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f6f6f7;
+  padding: 20px 40px;
+  width: 100%;
+  user-select: none;
+}
+
+.AddGuild--bottomPanel > *:first-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid transparent;
+  cursor: pointer;
+  color: #99aab5;
+  outline: none;
+  padding: 4px 0;
+}
+
+.AddGuild--bottomPanel > *:first-child:hover {
+  border-bottom: 2px solid #99aab5;
+}
+
+.AddGuild--bottomPanel > *:first-child > *:first-child {
+  margin-right: 12px;
+}
+
+.AddGuild--createButton,
+.AddGuild--joinButton {
+  width: 100px;
+  height: 40px;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  font-family: Whitney;
+  font-size: 14px;
+}
+
+.AddGuild--bottomPanel > *:first-child {
+  font-family: Whitney;
+  font-size: 12px;
+}
+
+.AddGuild--header {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.AddGuild--create > .AddGuild--header {
+  color: #7289da;
+}
+
+.AddGuild--join > .AddGuild--header {
+  color: #3ca374;
+}
+
+.AddGuild--join > *:nth-child(3) {
+  height: 80px;
+}
+
+.AddGuild--joinInput {
+  width: 100%;
+}
+.AddGuild--joinInput > * {
+  width: 100%;
+}
+
+.AddGuild--joinInput > *:first-child {
+  color: #99aab5;
+  font-size: 11px;
+  margin-bottom: 5px;
+  padding: 10px 4px;
+  font-size: 16px;
+  font-family: Whitney;
+  color: black;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #99aab5;
+}
+
+.AddGuild--joinInput > *:last-child {
+  color: #99aab5;
+  font-size: 11px;
+}
+
+.AddGuild--createInput {
+  width: 100%;
+}
+
+.AddGuild--createInput > input {
+  color: #99aab5;
+  margin-top: 5px;
+  padding: 10px 4px;
+  font-size: 16px;
+  font-family: Whitney;
+  color: black;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #99aab5;
+  width: 100%;
+}
+.AddGuild--createInput > p {
+  color: #87909c;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.AddGuild--create > *:nth-child(2) {
+  padding-bottom: 0;
+}
+
+.AddGuild--error {
+  color: rgb(240, 71, 71);
+}

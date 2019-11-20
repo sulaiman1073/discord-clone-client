@@ -1,0 +1,49 @@
+.Input1--container > h4 {
+  display: inline;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8e9297;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+  user-select: none;
+  text-transform: uppercase;
+}
+
+.Input1--container > span {
+  margin-left: 10px;
+  color: rgb(240, 71, 71);
+  font-size: 13px;
+  text-shadow: none;
+  user-select: none;
+  font-weight: 400;
+}
+
+.Input1--container > input {
+  display: block;
+  font-family: Whitney;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px;
+  height: 40px;
+  width: 100%;
+  border-radius: 3px;
+  color: #b2b4b5;
+  background-color: #26282c;
+  outline: 0;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  text-rendering: optimizeLegibility;
+  margin-top: 8px;
+}
+
+.Input1--container > input:hover {
+  border-color: #040405;
+}
+.Input1--container > input:disabled {
+  border-color: #202225;
+}
+.Input1--container > input:focus {
+  border-color: #7289da;
+}
+
+.Input1--error > input {
+  border-color: rgb(240, 71, 71) !important;
+}

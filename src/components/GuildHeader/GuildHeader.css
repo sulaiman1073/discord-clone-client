@@ -1,0 +1,132 @@
+.GuildHeader--container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: var(--space-md); */
+  transition: background-color 0.15s ease-in-out;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.GuildHeader--header {
+  color: white;
+  cursor: default;
+  user-select: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.GuildHeader--container:hover {
+  background-color: #33363c;
+}
+
+.GuildHeader--container > *:last-child {
+  color: #b9bbbe;
+  padding: 5px;
+}
+
+.GuildHeader--menu {
+  position: absolute;
+  z-index: 10;
+  width: 220px;
+  /* bottom: 65px; */
+  top: 55px;
+  background-color: #18191c;
+  color: #b9bbbe;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
+  outline: none;
+  font-size: 14px;
+  user-select: none;
+}
+
+.GuildHeader--menu > * {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 10px;
+  width: 100%;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #b9bbbe;
+}
+
+.GuildHeader--menu > * > *:last-child {
+  width: 14px;
+  height: 14px;
+}
+
+.GuildHeader--menu > *:hover {
+  background-color: rgba(79, 84, 92, 0.16);
+}
+
+.GuildHeader--menu > *:active {
+  background-color: rgba(79, 84, 92, 0.24);
+}
+
+.GuildHeader--menu > *:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.GuildHeader--invite {
+  color: #7289da;
+}
+
+.GuildHeader--leave {
+  color: rgb(240, 71, 71);
+}
+
+/* .GuildHeader--menu > *:nth-child(1) > *:first-child {
+  height: 10px;
+  width: 10px;
+  margin-right: 10px;
+  border-radius: 20px;
+  background-color: rgb(67, 181, 129);
+}
+.GuildHeader--menu > *:nth-child(2) > *:first-child {
+  height: 10px;
+  width: 10px;
+  margin-right: 10px;
+  border-radius: 20px;
+  background-color: rgb(250, 166, 26);
+}
+.GuildHeader--menu > *:nth-child(3) > *:first-child {
+  height: 10px;
+  width: 10px;
+  margin-right: 10px;
+  border-radius: 20px;
+  background-color: rgb(240, 71, 71);
+} */
+
+.GuildHeader--tooltip {
+  background-color: rgb(67, 181, 129) !important;
+  font-family: Whitney, BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif !important;
+  font-size: 14px !important;
+  opacity: 1 !important;
+  border-radius: 5px !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  width: 70px;
+}
+
+.GuildHeader--tooltip:after {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 10000 !important;
+  left: 0 !important;
+  top: 50% !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 5px solid transparent !important;
+  border-right-color: rgb(67, 181, 129) !important;
+  border-left: 0 !important;
+  margin-top: -5px !important;
+  margin-left: -5px !important;
+}

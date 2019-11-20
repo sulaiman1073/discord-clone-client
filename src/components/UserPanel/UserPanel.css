@@ -1,0 +1,186 @@
+.UserPanel--container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+.UserPanel--container > *:last-child {
+  padding: 10px;
+  color: #b9bbbe;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.UserPanel--user {
+  display: flex;
+  flex-direction: row;
+}
+
+.UserPanel--avatar {
+  margin-right: var(--space-sm);
+  position: relative;
+  height: 35px;
+  cursor: pointer;
+}
+
+.UserPanel--avatar > img {
+  width: 35px;
+  height: 100%;
+  border-radius: 25px;
+  transition: border-radius 0.25s ease-in-out;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+.UserPanel--avatar > img:hover {
+  opacity: 0.8;
+}
+
+.UserPanel--status {
+  background-color: white;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  border: 3px solid var(--color-secondary);
+  position: absolute;
+  /* z-index: 1; */
+  right: -8%;
+  bottom: -5%;
+}
+
+.UserPanel--statusOnline .UserPanel--status {
+  background-color: var(--color-statusOnline);
+}
+
+.UserPanel--statusAway .UserPanel--status {
+  background-color: var(--color-statusAway);
+}
+
+.UserPanel--statusBusy .UserPanel--status {
+  background-color: var(--color-statusBusy);
+}
+
+.UserPanel--name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.UserPanel--name > *:first-child {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+.UserPanel--name > *:last-child {
+  font-size: 10px;
+  font-weight: 500;
+  color: #b9bbbe;
+}
+
+.UserPanel--settings {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  box-shadow: none;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.UserPanel--settings:last-child:hover {
+  background-color: #31363b;
+}
+
+.UserPanel--statusMenu {
+  position: absolute;
+  z-index: 10;
+  width: 220px;
+  bottom: 65px;
+  background-color: #18191c;
+  color: #b9bbbe;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
+  outline: none;
+  font-size: 14px;
+  user-select: none;
+}
+
+.UserPanel--statusMenu > * {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px 10px;
+  width: 100%;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.UserPanel--statusMenu > *:hover {
+  background-color: rgba(79, 84, 92, 0.16);
+}
+.UserPanel--statusMenu > *:active {
+  background-color: rgba(79, 84, 92, 0.24);
+}
+
+.UserPanel--statusMenu > *:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.UserPanel--statusMenu > *:nth-child(1) > *:first-child {
+  height: 10px;
+  width: 10px;
+  margin-right: 10px;
+  border-radius: 20px;
+  background-color: rgb(67, 181, 129);
+}
+.UserPanel--statusMenu > *:nth-child(2) > *:first-child {
+  height: 10px;
+  width: 10px;
+  margin-right: 10px;
+  border-radius: 20px;
+  background-color: rgb(250, 166, 26);
+}
+.UserPanel--statusMenu > *:nth-child(3) > *:first-child {
+  height: 10px;
+  width: 10px;
+  margin-right: 10px;
+  border-radius: 20px;
+  background-color: rgb(240, 71, 71);
+}
+
+.UserPanel--tooltip {
+  background-color: rgb(67, 181, 129) !important;
+  font-family: Whitney, BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif !important;
+  font-size: 14px !important;
+  opacity: 1 !important;
+  border-radius: 5px !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  width: 70px;
+}
+
+.UserPanel--tooltip:after {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 10000 !important;
+  left: 0 !important;
+  top: 50% !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 5px solid transparent !important;
+  border-bottom-color: rgb(67, 181, 129) !important;
+  border-bottom: 0 !important;
+  margin-top: -5px !important;
+  margin-left: -5px !important;
+}

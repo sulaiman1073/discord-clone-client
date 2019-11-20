@@ -1,0 +1,35 @@
+.GuildSettingsGeneral--container {
+  padding: 0px 20px 60px 20px;
+}
+
+.GuildSettingsGeneral--container > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.GuildSettingsGeneral--container > *:first-child {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  user-select: none;
+}
+
+.GuildSettingsGeneral--container > *:nth-child(2) {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  user-select: none;
+}
+
+.GuildSettingsGeneral--container > *:nth-child(2) > *:not(:last-child) {
+  margin-right: 20px;
+}
+
+.GuildSettingsGeneral--container > *:nth-child(2) > *:nth-child(2) {
+  margin-bottom: 60px;
+  margin-left: 20px;
+}

@@ -1,0 +1,58 @@
+.GuildSettingsPage--container {
+  flex-grow: 1;
+  display: grid;
+  grid-template-areas:
+    "options close"
+    "options settings";
+  grid-template-columns: 1fr 3.5fr;
+  grid-template-rows: 60px 1fr;
+  height: 100%;
+}
+
+.SettingsOptions--container {
+  grid-area: options;
+  background-color: #2f3136;
+}
+
+.GuildSettingsPage--close {
+  grid-area: close;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 15px;
+  position: relative;
+}
+
+.GuildSettingsPage--close > * {
+  color: #dcddde;
+  border: 2px solid #72767d;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 36px;
+  width: 36px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.GuildSettingsPage--close > *:hover {
+  background-color: #484b52;
+}
+
+.GuildSettingsGeneral--container {
+  grid-area: settings;
+  background-color: var(--color-primary);
+}
+
+.GuildSettingsChannels--container {
+  grid-area: settings;
+  background-color: var(--color-primary);
+}
+
+.GuildSettingsMembers--container {
+  grid-area: settings;
+  background-color: var(--color-primary);
+}

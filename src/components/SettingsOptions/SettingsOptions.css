@@ -1,0 +1,71 @@
+.SettingsOptions--container {
+  padding: 60px 10px 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.SettingsOptions--container > *:not(:last-child) {
+  margin-bottom: var(--space-xs);
+}
+
+.SettingsOptions--option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  user-select: none;
+  cursor: pointer;
+  color: #b9bbbe;
+  width: 200px;
+}
+
+.SettingsOptions--option > p {
+  margin-right: var(--space-xs);
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.SettingsOptions--optionCurrent {
+  color: white;
+  background-color: #393c42;
+  cursor: default;
+}
+
+.SettingsOptions--option:hover {
+  color: #bec0c1;
+  background-color: #33363c;
+}
+
+.SettingsOptions--optionCurrent:hover {
+  color: white;
+  background-color: #393c42;
+}
+
+.SettingsOptions--option:active {
+  color: white;
+  background-color: #393c42;
+}
+
+.SettingsOptions--deleteGuild {
+  color: rgb(240, 71, 71);
+  padding: 12px 10px;
+  margin-top: 20px;
+}
+
+.SettingsOptions--deleteGuild:hover {
+  color: rgb(240, 71, 71);
+  background-color: #433338;
+}
+
+.SettingsOptions--deleteGuild:active {
+  color: white;
+  background-color: rgb(240, 71, 71);
+}

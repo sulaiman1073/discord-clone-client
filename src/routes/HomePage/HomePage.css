@@ -1,0 +1,67 @@
+.HomePage--container {
+  flex-grow: 1;
+  display: grid;
+  grid-template-areas:
+    "GuildsPanel   GuildHeader    ChannelHeader   ChannelHeader"
+    "GuildsPanel   ChannelsPanel   ChatPanel       MembersPanel"
+    "GuildsPanel   ChannelsPanel   DraftPanel  MembersPanel"
+    "GuildsPanel   UserPanel       DraftPanel  MembersPanel";
+
+  grid-template-columns: 75px 240px minmax(0, 1fr) 240px;
+  /* grid-template-rows: 50px 1fr min-content 55px; */
+  grid-template-rows: 50px 1fr auto 55px;
+  /* grid-template-rows: 50px 1fr auto 55px; */
+  /* grid-template-rows: 50px auto minmax(10px, 135px) 55px; */
+  height: 100%;
+}
+
+.GuildsPanel--container {
+  grid-area: GuildsPanel;
+  background-color: var(--color-quaternary);
+}
+
+.ChannelsPanel--container {
+  grid-area: ChannelsPanel;
+  background-color: var(--color-secondary);
+}
+
+.MembersPanel--container {
+  grid-area: MembersPanel;
+  background-color: var(--color-secondary);
+}
+
+.UserPanel--container {
+  grid-area: UserPanel;
+  background-color: var(--color-tertiary);
+}
+
+.ChatPanel--container {
+  grid-area: ChatPanel;
+  background-color: var(--color-primary);
+}
+
+.DraftPanel--container {
+  grid-area: DraftPanel;
+  background-color: var(--color-primary);
+}
+
+.GuildHeader--container {
+  grid-area: GuildHeader;
+  background-color: var(--color-secondary);
+  border-bottom: 2px solid var(--color-accent2);
+}
+
+.ChannelHeader--container {
+  grid-area: ChannelHeader;
+  background-color: var(--color-primary);
+  border-bottom: 2px solid var(--color-accent1);
+}
+
+.HomePage--noGuilds1 {
+  grid-area: ChannelsPanel;
+  background-color: var(--color-secondary);
+}
+.HomePage--noGuilds2 {
+  grid-area: GuildHeader;
+  background-color: var(--color-secondary);
+}

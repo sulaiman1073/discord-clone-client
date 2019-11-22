@@ -1,3 +1,4 @@
+import uuidv4 from "uuid/v4";
 import { SET_USER_INFO, USER_UPDATE, LOGOUT } from "../constants";
 
 const initialState = {
@@ -8,7 +9,8 @@ const initialState = {
   status: null,
   email: null,
   emailVerified: null,
-  defaultAvatar: "https://i.imgur.com/7VbpwDl.png"
+  defaultAvatar: "https://i.imgur.com/7VbpwDl.png",
+  updatedAvatar: null
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -30,7 +32,10 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         ...(payload.username && { username: payload.username }),
         ...(payload.discriminator && { discriminator: payload.discriminator }),
-        ...(payload.avatar !== undefined && { avatar: payload.avatar }),
+        ...(payload.avatar !== undefined && {
+          avatar: payload.avatar,
+          updatedAvatar: uuidv4()
+        }),
         ...(payload.status && { status: payload.status }),
         ...(payload.email && { email: payload.email }),
         ...(payload.emailVerified && { emailVerified: payload.emailVerified })

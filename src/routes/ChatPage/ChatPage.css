@@ -1,17 +1,14 @@
-.HomePage--container {
+.ChatPage--container {
   flex-grow: 1;
   display: grid;
   grid-template-areas:
-    "GuildsPanel   GuildHeader    ChannelHeader   ChannelHeader"
+    "GuildsPanel   GuildHeader     ChannelHeader   ChannelHeader"
     "GuildsPanel   ChannelsPanel   ChatPanel       MembersPanel"
-    "GuildsPanel   ChannelsPanel   DraftPanel  MembersPanel"
-    "GuildsPanel   UserPanel       DraftPanel  MembersPanel";
+    "GuildsPanel   ChannelsPanel   DraftPanel      MembersPanel"
+    "GuildsPanel   UserPanel       DraftPanel      MembersPanel";
 
   grid-template-columns: 75px 240px minmax(0, 1fr) 240px;
-  /* grid-template-rows: 50px 1fr min-content 55px; */
   grid-template-rows: 50px 1fr auto 55px;
-  /* grid-template-rows: 50px 1fr auto 55px; */
-  /* grid-template-rows: 50px auto minmax(10px, 135px) 55px; */
   height: 100%;
 }
 
@@ -57,11 +54,11 @@
   border-bottom: 2px solid var(--color-accent1);
 }
 
-.HomePage--noGuilds1 {
+.ChatPage--noGuilds1 {
   grid-area: ChannelsPanel;
   background-color: var(--color-secondary);
 }
-.HomePage--noGuilds2 {
+.ChatPage--noGuilds2 {
   grid-area: GuildHeader;
   background-color: var(--color-secondary);
 }

@@ -1,6 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-closing-tag-location */
 import React, { useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { leaveGuild, closeModal } from "../../redux/actions";

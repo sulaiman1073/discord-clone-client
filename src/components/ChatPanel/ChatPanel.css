@@ -2,6 +2,7 @@
   padding: 20px 20px 0px 20px;
   overflow-y: scroll;
   overflow-x: hidden;
+  scrollbar-color: var(--color-quaternary) var(--color-secondary);
 }
 
 .ChatPanel--container::-webkit-scrollbar {

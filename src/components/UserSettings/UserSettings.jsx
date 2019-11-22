@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Formik } from "formik";
@@ -52,7 +51,7 @@ export default function UserSettings() {
   const avatar = useSelector(
     ({ userState }) => userState.avatar || defaultAvatar
   );
-  const { username, discriminator, email } = useSelector(
+  const { username, discriminator, email, updatedAvatar } = useSelector(
     state => state.userState
   );
   const { userApiLoading: apiLoading, userApiError: apiError } = useSelector(
@@ -108,7 +107,10 @@ export default function UserSettings() {
         <h3>USER SETTINGS</h3>
         {!editing && (
           <div className="UserSettings--settingsPanel">
-            <img src={`${avatar}?${performance.now()}`} alt="avatar" />
+            <img
+              src={updatedAvatar ? `${avatar}?${updatedAvatar}` : avatar}
+              alt="avatar"
+            />
             <div className="UserSettings--userInfo">
               <div>
                 <h4>USERNAME</h4>

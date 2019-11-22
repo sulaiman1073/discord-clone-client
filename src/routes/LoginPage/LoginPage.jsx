@@ -37,35 +37,6 @@ export default function LoginPage({ match }) {
   const error = useSelector(({ apiState }) => apiState.userApiError);
   const dispatch = useDispatch();
   const [loginOrRegister, setLoginOrRegister] = useState("login");
-  // const [mounted, setMounted] = useState(false);
-
-  // useEffect(() => {
-  //   setMounted(true);
-  // }, []);
-
-  // useEffect(() => {
-  //   if (!mounted) return;
-
-  //   if (!loading && !error) {
-  //     if (loginOrRegister === "login") {
-  //       dispatch(
-  //         login({
-  //           email: values.email,
-  //           password: values.password
-  //         })
-  //       );
-  //     } else {
-  //       dispatch(
-  //         register({
-  //           email: values.email,
-  //           username: values.username,
-  //           password: values.password
-  //         })
-  //       );
-  //     }
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [loading]);
 
   useEffect(() => {
     if (match.path.slice(1).startsWith("register"))
@@ -73,8 +44,6 @@ export default function LoginPage({ match }) {
     else if (match.path.slice(1).startsWith("login"))
       setLoginOrRegister("login");
   }, [match]);
-
-  // if (apiLoading) return <LoadingPage />;
 
   return (
     <Formik

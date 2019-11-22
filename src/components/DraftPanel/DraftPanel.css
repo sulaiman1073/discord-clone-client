@@ -59,6 +59,7 @@
   padding: 10px 14px 10px 10px;
   border: none;
   outline: none;
+  user-select: none;
 }
 
 .DraftPanel--input > button > * {

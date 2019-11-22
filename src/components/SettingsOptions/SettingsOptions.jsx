@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/interactive-supports-focus */
 import React from "react";
 import classNames from "classnames";
 import "./SettingsOptions.css";

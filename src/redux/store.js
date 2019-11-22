@@ -12,6 +12,7 @@ import {
   wsReducer
 } from "./reducers";
 import websocketMiddleware from "./websocketMiddleware";
+import localstorageMiddleware from "./localstorageMiddleware";
 
 const rootReducer = history =>
   combineReducers({
@@ -32,16 +33,20 @@ const middleware =
     ? [
         require("redux-immutable-state-invariant").default(),
         thunk,
-        websocketMiddleware("ws://localhost:4000"),
+        localstorageMiddleware(),
+        websocketMiddleware(process.env.REACT_APP_WS_URL),
         routerMiddleware(history)
       ]
     : [
         thunk,
-        websocketMiddleware("ws://localhost:4000"),
+        localstorageMiddleware(),
+        websocketMiddleware(process.env.REACT_APP_WS_URL),
         routerMiddleware(history)
       ];
 
-export default createStore(
+const store = createStore(
   rootReducer(history),
   composeEnhancer(applyMiddleware(...middleware))
 );
+
+export default store;

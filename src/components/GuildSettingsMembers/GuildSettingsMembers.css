@@ -2,8 +2,7 @@
   padding: 0px 20px 60px 20px;
   overflow-y: scroll;
   overflow-x: hidden;
-  /* display: flex;
-  flex-direction: column; */
+  scrollbar-color: var(--color-quaternary) var(--color-secondary);
 }
 
 .GuildSettingsMembers--container::-webkit-scrollbar {

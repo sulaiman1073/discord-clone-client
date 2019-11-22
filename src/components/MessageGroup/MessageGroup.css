@@ -1,0 +1,88 @@
+.MessageGroup--container {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 0;
+  border-top: 1px solid #42454a;
+}
+
+.MessageGroup--container > img {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  transition: border-radius 0.25s ease-in-out;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  margin-right: 20px;
+}
+
+.MessageGroup--header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.MessageGroup--header > *:first-child {
+  margin-right: var(--space-xs);
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+}
+
+.MessageGroup--header > *:first-child > span {
+  /* margin-left: var(--space-xs); */
+  font-size: 12px;
+  font-weight: 500;
+  color: #72767d;
+}
+
+.MessageGroup--message {
+  font-size: 16px;
+  font-weight: 400;
+  color: #dcdcdc;
+  text-shadow: 1px 1px 1px black;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+
+.MessageGroup--container > *:last-child > *:not(:last-child) {
+  margin-bottom: 3px;
+}
+
+.MessageGroup--header {
+  margin-bottom: var(--space-xs) !important;
+}
+
+.MessageGroup--tooltip {
+  background-color: black !important;
+  font-family: Whitney, BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif !important;
+  font-size: 14px !important;
+  opacity: 1 !important;
+  border-radius: 5px !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+.MessageGroup--tooltip:after {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 10000 !important;
+  left: 0 !important;
+  top: 50% !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 5px solid transparent !important;
+  border-bottom-color: black !important;
+  border-bottom: 0 !important;
+  margin-left: -5px !important;
+  margin-right: -5px !important;
+}

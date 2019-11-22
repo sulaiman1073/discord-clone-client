@@ -1,8 +1,6 @@
 import _ from "lodash";
 
 const updateChannels = (state, payload) => {
-  // localStorage.setItem("activeGuild", JSON.stringify(payload.guildId));
-
   const channelIds1 = Object.keys(state.channels[payload.guildId]);
   const channelIds2 = Object.keys(payload.channels[payload.guildId]);
   const newChannelsIds = _.difference(channelIds2, channelIds1);
@@ -12,7 +10,7 @@ const updateChannels = (state, payload) => {
   const newDrafts = Object.fromEntries(
     newChannelsIds.map(channelId => [channelId, ""])
   );
-  const newChannelsLastVisits = Object.fromEntries(
+  const newlastChannelVisits = Object.fromEntries(
     newChannelsIds.map(channelId => [channelId, null])
   );
 
@@ -39,10 +37,10 @@ const updateChannels = (state, payload) => {
         ...newDrafts
       }
     }),
-    ...(!_.isEmpty(newChannelsLastVisits) && {
-      newChannelsLastVisits: {
-        ...state.channelsLastVisits,
-        ...newChannelsLastVisits
+    ...(!_.isEmpty(newlastChannelVisits) && {
+      newlastChannelVisits: {
+        ...state.lastChannelVisits,
+        ...newlastChannelVisits
       }
     }),
     ...(!_.isEmpty(newMessages) && {
@@ -51,10 +49,10 @@ const updateChannels = (state, payload) => {
         ...newMessages
       }
     }),
-    ...(!_.isEmpty(newChannelsLastVisits) && {
+    ...(!_.isEmpty(newlastChannelVisits) && {
       lastTypes: {
         ...state.lastTypes,
-        ...newChannelsLastVisits
+        ...newlastChannelVisits
       }
     })
   };

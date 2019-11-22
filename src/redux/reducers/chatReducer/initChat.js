@@ -1,25 +1,4 @@
-import _ from "lodash";
-
 const initChat = (state, payload) => {
-  if (payload.activeGuild) {
-    localStorage.setItem("activeGuild", JSON.stringify(payload.activeGuild));
-  }
-  if (payload.activeChannels && !_.isEmpty(payload.activeChannels)) {
-    localStorage.setItem(
-      "activeChannels",
-      JSON.stringify(payload.activeChannels)
-    );
-  }
-  if (payload.drafts && !_.isEmpty(payload.drafts)) {
-    localStorage.setItem("drafts", JSON.stringify(payload.drafts));
-  }
-  if (payload.channelsLastVisits && !_.isEmpty(payload.channelsLastVisits)) {
-    localStorage.setItem(
-      "channelsLastVisits",
-      JSON.stringify(payload.channelsLastVisits)
-    );
-  }
-
   return {
     ...state,
     guilds: payload.guilds,
@@ -29,7 +8,7 @@ const initChat = (state, payload) => {
     activeGuild: payload.activeGuild,
     activeChannels: payload.activeChannels,
     drafts: payload.drafts,
-    channelsLastVisits: payload.channelsLastVisits,
+    lastChannelVisits: payload.lastChannelVisits,
     membersTyping: Object.fromEntries(
       Object.values(payload.channels)
         .map(channel => Object.keys(channel))
@@ -42,7 +21,7 @@ const initChat = (state, payload) => {
         .flat()
         .map(channelId => [channelId, null])
     ),
-    connected: true
+    guildOrder: payload.guildOrder
   };
 };
 

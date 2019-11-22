@@ -1,22 +1,22 @@
 import initChat from "./initChat";
-import updateChannels from "./updateChannels";
 import addGuild from "./addGuild";
 import updateGuild from "./updateGuild";
 import deleteGuild from "./deleteGuild";
+import updateChannels from "./updateChannels";
+import addMember from "./addMember";
+import updateMember from "./updateMember";
+import deleteMember from "./deleteMember";
+import addMessage from "./addMessage";
 import setActiveGuild from "./setActiveGuild";
 import setActiveChannel from "./setActiveChannel";
-import addMessage from "./addMessage";
 import addChannelMessages from "./addChannelMessages";
 import addFetchedMessages from "./addFetchedMessages";
 import addMemberTyping from "./addMemberTyping";
 import deleteMemberTyping from "./deleteMemberTyping";
 import setSocketBusy from "./setSocketBusy";
 import setDraft from "./setDraft";
-import addMember from "./addMember";
-import updateMember from "./updateMember";
-import deleteMember from "./deleteMember";
-
 import setFetchingMessages from "./setFetchingMessages";
+import setGuildOrder from "./setGuildOrder";
 
 import {
   INIT_CHAT,
@@ -36,7 +36,8 @@ import {
   SET_FETCHING_MESSAGES,
   CHANNELS_UPDATE,
   GUILD_DELETE,
-  MEMBER_DELETE
+  MEMBER_DELETE,
+  SET_GUILD_ORDER
 } from "../../constants";
 
 const initialState = {
@@ -47,12 +48,12 @@ const initialState = {
   activeGuild: null,
   activeChannels: null,
   drafts: null,
-  channelsLastVisits: null,
+  lastChannelVisits: null,
   membersTyping: null,
   lastTypes: null,
   socketBusy: false,
   fetchingMessages: false,
-  connected: false
+  guildOrder: null
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -109,6 +110,9 @@ export default (state = initialState, { type, payload }) => {
   }
   if (type === SET_FETCHING_MESSAGES) {
     return setFetchingMessages(state, payload);
+  }
+  if (type === SET_GUILD_ORDER) {
+    return setGuildOrder(state, payload);
   }
 
   return state;

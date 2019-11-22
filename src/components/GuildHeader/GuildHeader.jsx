@@ -1,14 +1,13 @@
-/* eslint-disable no-empty */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { withRouter } from "react-router";
+import { useHistory } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import { openGuildLeaveModal } from "../../redux/actions";
 import "./GuildHeader.css";
 
-export default withRouter(function GuildHeader({ history }) {
+export default function GuildHeader() {
+  const history = useHistory();
   const { name, inviteCode, ownerId } = useSelector(
     ({ chatState }) => chatState.guilds[chatState.activeGuild]
   );
@@ -100,6 +99,4 @@ export default withRouter(function GuildHeader({ history }) {
       )}
     </div>
   );
-});
-
-// export default withRouter(GuildHeader);
+}

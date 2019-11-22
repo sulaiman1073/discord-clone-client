@@ -1,8 +1,6 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable jsx-a11y/no-autofocus */
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateChannels } from "../../redux/actions";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import uuidv4 from "uuid/v4";
 import _ from "lodash";
@@ -17,12 +15,14 @@ const reorder = (list, startIndex, endIndex) => {
   return result;
 };
 
-export default function GuildSettingsChannels({
-  channels,
-  channelsUpdateHandler,
-  apiLoading,
-  apiError
-}) {
+export default function GuildSettingsChannels() {
+  const channels = useSelector(
+    ({ chatState }) => chatState.channels[chatState.activeGuild]
+  );
+  const { chatApiLoading: apiLoading, chatApiError: apiError } = useSelector(
+    state => state.apiState
+  );
+  const dispatch = useDispatch();
   const [mounted, setMounted] = useState(false);
   const [saveChangesOpen, setSaveChangesOpen] = useState(false);
   const [saveChangesRequestClose, setSaveChangesRequestClose] = useState(false);
@@ -38,8 +38,18 @@ export default function GuildSettingsChannels({
         a.position > b.position ? 1 : b.position > a.position ? -1 : 0
       )
   );
-  const [list, setList] = useState(
-    Object.entries(channels)
+  const [list, setList] = useState(originalList);
+
+  useEffect(() => {
+    if (mounted) return;
+
+    setMounted(true);
+  }, [mounted]);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const newList = Object.entries(channels)
       .map(([channelId, channel]) => ({
         id: channelId,
         name: channel.name,
@@ -48,14 +58,10 @@ export default function GuildSettingsChannels({
       }))
       .sort((a, b) =>
         a.position > b.position ? 1 : b.position > a.position ? -1 : 0
-      )
-  );
-
-  useEffect(() => {
-    if (mounted) return;
-
-    setMounted(true);
-  }, [mounted, originalList]);
+      );
+    setOriginalList(newList);
+    setList(newList);
+  }, [channels, mounted]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -100,7 +106,9 @@ export default function GuildSettingsChannels({
         return newChannel;
       });
 
-    channelsUpdateHandler({ addedChannels, updatedChannels, deletedChannels });
+    dispatch(
+      updateChannels({ addedChannels, updatedChannels, deletedChannels })
+    );
   };
 
   const resetChanges = () => {

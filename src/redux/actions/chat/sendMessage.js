@@ -6,7 +6,7 @@ const sendMessage = () => {
     try {
       const { activeGuild, activeChannels, drafts } = getState().chatState;
 
-      await api.sendChatMessage({
+      await api.sendMessage({
         channelId: activeChannels[activeGuild],
         message: drafts[activeChannels[activeGuild]]
       });

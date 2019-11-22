@@ -2,7 +2,7 @@ const addMemberTyping = (state, payload) => {
   return {
     ...state,
     ...(payload.clientUserId !== payload.userId &&
-      (!state.membersTyping[payload.channelId].includes(payload.userId) && {
+      !state.membersTyping[payload.channelId].includes(payload.userId) && {
         membersTyping: {
           ...state.membersTyping,
           [payload.channelId]: [
@@ -10,7 +10,7 @@ const addMemberTyping = (state, payload) => {
             payload.userId
           ]
         }
-      })),
+      }),
     ...(payload.clientUserId === payload.userId && {
       lastTypes: {
         ...state.lastTypes,

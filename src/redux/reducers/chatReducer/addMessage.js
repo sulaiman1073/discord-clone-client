@@ -1,14 +1,4 @@
 const addMessage = (state, payload) => {
-  if (payload.userId === payload.message.userId) {
-    localStorage.setItem(
-      "channelsLastVisits",
-      JSON.stringify({
-        ...state.channelsLastVisits,
-        [payload.channelId]: new Date()
-      })
-    );
-  }
-
   return {
     ...state,
     messages: {
@@ -43,8 +33,8 @@ const addMessage = (state, payload) => {
       )
     },
     ...(payload.userId === payload.message.userId && {
-      channelsLastVisits: {
-        ...state.channelsLastVisits,
+      lastChannelVisits: {
+        ...state.lastChannelVisits,
         [payload.channelId]: new Date()
       }
     })

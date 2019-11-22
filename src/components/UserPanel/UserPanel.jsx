@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable no-empty */
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classNames from "classnames";
@@ -11,7 +7,7 @@ import discriminatorFormatter from "../../util/discriminatorFormatter";
 import "./UserPanel.css";
 
 export default function UserPanel() {
-  const { username, discriminator, status } = useSelector(
+  const { username, discriminator, status, updatedAvatar } = useSelector(
     state => state.userState
   );
   const avatar = useSelector(
@@ -41,7 +37,7 @@ export default function UserPanel() {
 
   const avatarClasses = classNames({
     "UserPanel--avatar": true,
-    "UserPanel--statusOnline": status === "online",
+    "UserPanel--statusAvailable": status === "available",
     "UserPanel--statusAway": status === "away",
     "UserPanel--statusBusy": status === "busy"
   });
@@ -75,12 +71,11 @@ export default function UserPanel() {
         <div
           className="UserPanel--statusMenu"
           ref={menuRef}
-          tabIndex="0"
           onBlur={() => {
             setMenuOpen(false);
           }}
         >
-          <div onClick={() => statusHandler("online")} role="button">
+          <div onClick={() => statusHandler("available")} role="button">
             <div />
             <p>Available</p>
           </div>
@@ -102,7 +97,10 @@ export default function UserPanel() {
           }}
           role="button"
         >
-          <img src={`${avatar}?${performance.now()}`} alt="avatar" />
+          <img
+            src={updatedAvatar ? `${avatar}?${updatedAvatar}` : avatar}
+            alt="avatar"
+          />
           <div className="UserPanel--status" />
         </div>
         <div

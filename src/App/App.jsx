@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Switch, Route } from "react-router";
 import { Redirect } from "react-router-dom";
-import HomePage from "../routes/HomePage";
+import ChatPage from "../routes/ChatPage";
 import LoginPage from "../routes/LoginPage";
 import GuildSettingsPage from "../routes/GuildSettingsPage";
 import ModalManager from "../components/ModalManager";
@@ -27,7 +27,7 @@ export default function App() {
     <section className="App--container">
       <ModalManager />
       <Switch>
-        {loggedIn && <Route exact path="/" component={HomePage} />}
+        {loggedIn && <Route exact path="/" component={ChatPage} />}
         {loggedIn && (
           <Route path="/guildSettings" component={GuildSettingsPage} />
         )}

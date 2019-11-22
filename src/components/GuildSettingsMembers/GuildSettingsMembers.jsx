@@ -1,10 +1,13 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import discriminatorFormatter from "../../util/discriminatorFormatter";
 import "./GuildSettingsMembers.css";
 
-export default function GuildSettingsMembers({ members, defaultAvatar }) {
+export default function GuildSettingsMembers() {
+  const defaultAvatar = useSelector(({ userState }) => userState.defaultAvatar);
+  const members = useSelector(
+    ({ chatState }) => chatState.members[chatState.activeGuild]
+  );
   const [input, setInput] = useState("");
 
   const filteredMembers = Object.entries(members)

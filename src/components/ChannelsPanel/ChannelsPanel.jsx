@@ -1,5 +1,3 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classNames from "classnames";
@@ -15,7 +13,7 @@ export default function ChannelsPanel() {
         position: channel.position,
         status:
           !channel.lastMessageAt ||
-          new Date(chatState.channelsLastVisits[channelId]) >
+          new Date(chatState.lastChannelVisits[channelId]) >
             new Date(channel.lastMessageAt)
             ? "checked"
             : "unchecked"

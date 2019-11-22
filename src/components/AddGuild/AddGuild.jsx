@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import isUuid from "uuid-validate";
@@ -62,6 +61,7 @@ const CreatePage = ({
         onChange={e => setGuildName(e.target.value)}
         disabled={loading}
         autoFocus
+        maxLength={50}
       />
     </div>
     <div>{error && <p className="AddGuild--error">{error}</p>}</div>
@@ -128,12 +128,15 @@ export default function AddGuild() {
     if (apiError) {
       setError(apiError);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [apiError]);
+  }, [apiError, mounted]);
 
   const submitHandler = () => {
     if (page === "create") {
-      dispatch(createGuild(guildName));
+      if (guildName.length >= 2) {
+        dispatch(createGuild(guildName));
+      } else {
+        setError("Guild name too short");
+      }
     } else if (page === "join") {
       if (isUuid(inviteCode)) {
         dispatch(joinGuild(inviteCode));

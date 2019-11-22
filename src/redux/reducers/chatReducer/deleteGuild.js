@@ -15,18 +15,7 @@ const deleteGuild = (state, payload) => {
     `[${payload.guildId}]`
   );
   const newDrafts = _.omit(state.drafts, removedChannels);
-  const newChannelsLastVisits = _.omit(
-    state.channelsLastVisits,
-    removedChannels
-  );
-
-  localStorage.setItem("activeGuild", JSON.stringify(newActiveGuild));
-  localStorage.setItem("activeChannels", JSON.stringify(newActiveChannels));
-  localStorage.setItem("drafts", JSON.stringify(newDrafts));
-  localStorage.setItem(
-    "channelsLastVisits",
-    JSON.stringify(newChannelsLastVisits)
-  );
+  const newlastChannelVisits = _.omit(state.lastChannelVisits, removedChannels);
 
   return {
     ...state,
@@ -39,7 +28,8 @@ const deleteGuild = (state, payload) => {
     drafts: newDrafts,
     membersTyping: _.omit(state.membersTyping, removedChannels),
     lastTypes: _.omit(state.lastTypes, removedChannels),
-    channelsLastVisits: newChannelsLastVisits
+    lastChannelVisits: newlastChannelVisits,
+    guildOrder: state.guildOrder.filter(guildId => guildId !== payload.guildId)
   };
 };
 

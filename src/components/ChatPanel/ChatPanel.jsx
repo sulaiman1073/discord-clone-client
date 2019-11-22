@@ -2,7 +2,7 @@ import React, { useRef, useLayoutEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMessages } from "../../redux/actions";
 import "./ChatPanel.css";
-import MessageBlock from "../MessageBlock";
+import MessageGroup from "../MessageGroup";
 
 const Spinner = () => (
   <div className="ChatPanel--spinner">
@@ -118,19 +118,17 @@ export default function ChatPanel() {
             </button>
           ))}
 
-        {formattedMessages.map(messageBlock => (
-          <MessageBlock
-            key={messageBlock.id}
-            userId={messageBlock.userId}
-            username={messageBlock.username}
-            createdAt={messageBlock.createdAt}
-            avatar={messageBlock.avatar}
-            messages={messageBlock.message}
+        {formattedMessages.map(message => (
+          <MessageGroup
+            key={message.id}
+            userId={message.userId}
+            username={message.username}
+            createdAt={message.createdAt}
+            avatar={message.avatar}
+            messages={message.message}
           />
         ))}
       </>
     </div>
   );
 }
-
-// MessageBlock rename to MessageGroup

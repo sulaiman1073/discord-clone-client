@@ -1,3 +1,5 @@
+import uuidv4 from "uuid/v4";
+
 const updateGuild = (state, payload) => {
   return {
     ...state,
@@ -6,7 +8,10 @@ const updateGuild = (state, payload) => {
       [payload.guildId]: {
         ...state.guilds[payload.guildId],
         ...(payload.name && { name: payload.name }),
-        ...(payload.icon && { icon: payload.icon })
+        ...(payload.icon !== undefined && {
+          icon: payload.icon,
+          updatedIcon: uuidv4()
+        })
       }
     }
   };

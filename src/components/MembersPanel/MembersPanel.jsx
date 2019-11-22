@@ -1,5 +1,3 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
 import React from "react";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
@@ -15,7 +13,8 @@ export default function MembersPanel() {
         discriminator: member.discriminator,
         avatar: member.avatar || defaultAvatar,
         status: member.status,
-        online: member.online
+        online: member.online,
+        updatedAvatar: member.updatedAvatar
       })
     )
   );
@@ -47,7 +46,7 @@ export default function MembersPanel() {
           {onlineMembers.map(member => {
             const memberClasses = classNames({
               "MembersPanel--member": true,
-              "MembersPanel--statusOnline": member.status === "online",
+              "MembersPanel--statusAvailable": member.status === "available",
               "MembersPanel--statusAway": member.status === "away",
               "MembersPanel--statusBusy": member.status === "busy"
             });
@@ -61,7 +60,11 @@ export default function MembersPanel() {
               >
                 <div className="MembersPanel--avatar">
                   <img
-                    src={`${member.avatar}?${performance.now()}`}
+                    src={
+                      member.updatedAvatar
+                        ? `${member.avatar}?${member.updatedAvatar}`
+                        : member.avatar
+                    }
                     alt="avatar"
                   />
                   <div className="MembersPanel--status" />
@@ -88,7 +91,11 @@ export default function MembersPanel() {
             >
               <div className="MembersPanel--avatar">
                 <img
-                  src={`${member.avatar}?${performance.now()}`}
+                  src={
+                    member.updatedAvatar
+                      ? `${member.avatar}?${member.updatedAvatar}`
+                      : member.avatar
+                  }
                   alt="avatar"
                 />
               </div>

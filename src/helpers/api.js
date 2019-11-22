@@ -24,15 +24,8 @@ export const updateGuild = (guildId, guildInfo) => {
   return axios.put(`/api/guilds/${guildId}`, guildInfo);
 };
 
-export const sendChatMessage = messageInfo => {
+export const sendMessage = messageInfo => {
   return axios.post("/api/messages/", messageInfo);
-};
-
-export const getGuild = (guildId, channelId) => {
-  if (!channelId) {
-    return axios.get(`/api/guilds/?guildId=${guildId}`);
-  }
-  return axios.get(`/api/guilds/?guildId=${guildId}&channelId=${channelId}`);
 };
 
 export const getMessages = (channelId, afterMessageId, beforeMessageId) => {

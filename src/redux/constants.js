@@ -17,6 +17,7 @@ export const MEMBER_ADD_TYPING = "chatState/MEMBER_ADD_TYPING";
 export const MEMBER_DELETE_TYPING = "chatState/MEMBER_DELETE_TYPING";
 export const SET_SOCKET_BUSY = "chatState/SET_SOCKET_BUSY";
 export const SET_FETCHING_MESSAGES = "chatState/SET_FETCHING_MESSAGES";
+export const SET_GUILD_ORDER = "chatState/SET_GUILD_ORDER";
 // USERSTATE
 export const SET_USER_INFO = "userState/SET_USER_INFO";
 export const USER_UPDATE = "userState/USER_UPDATE";

@@ -2,6 +2,7 @@
   padding: var(--space-sm) var(--space-sm);
   overflow-y: scroll;
   position: relative;
+  scrollbar-color: var(--color-quaternary) var(--color-secondary);
 }
 
 .ChannelsPanel--container > *:not(:last-child) {

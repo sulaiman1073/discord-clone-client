@@ -1,6 +1,7 @@
 .MembersPanel--container {
   padding: var(--space-md) var(--space-sm);
   overflow-y: scroll;
+  scrollbar-color: var(--color-quaternary) var(--color-secondary);
 }
 
 .MembersPanel--container::-webkit-scrollbar {
@@ -87,8 +88,8 @@
   bottom: -5%;
 }
 
-.MembersPanel--statusOnline .MembersPanel--status {
-  background-color: var(--color-statusOnline);
+.MembersPanel--statusAvailable .MembersPanel--status {
+  background-color: var(--color-statusAvailable);
 }
 
 .MembersPanel--statusAway .MembersPanel--status {

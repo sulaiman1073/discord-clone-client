@@ -11,6 +11,7 @@ import setActiveGuild from "./setActiveGuild";
 import setDraft from "./setDraft";
 import updateChannels from "./updateChannels";
 import updateGuild from "./updateGuild";
+import setGuildOrder from "./setGuildOrder";
 
 export {
   createGuild,
@@ -25,5 +26,6 @@ export {
   setActiveGuild,
   setDraft,
   updateChannels,
-  updateGuild
+  updateGuild,
+  setGuildOrder
 };

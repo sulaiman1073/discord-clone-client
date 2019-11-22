@@ -1,6 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-closing-tag-location */
 import React, { useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteGuild, closeModal } from "../../redux/actions";
@@ -49,7 +46,7 @@ export default function DeleteGuild() {
       />
       {error && (
         <p className="DeleteGuild--error">
-          You didn't enter the guild name correctly
+          You didnt enter the guild name correctly
         </p>
       )}
       {apiError && !error && <p className="DeleteGuild--error">{apiError}</p>}

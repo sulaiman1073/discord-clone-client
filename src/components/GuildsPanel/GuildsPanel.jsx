@@ -1,13 +1,13 @@
-/* eslint-disable no-shadow */
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import classNames from "classnames";
 import ReactTooltip from "react-tooltip";
-import { setActiveGuild, openGuildAddModal } from "../../redux/actions";
+import {
+  setActiveGuild,
+  setGuildOrder,
+  openGuildAddModal
+} from "../../redux/actions";
 import "./GuildsPanel.css";
 
 const reorder = (list, startIndex, endIndex) => {
@@ -22,6 +22,7 @@ export default function GuildsPanel() {
   const defaultAvatar = useSelector(({ userState }) => userState.defaultAvatar);
   const guilds = useSelector(({ chatState }) => chatState.guilds);
   const activeGuild = useSelector(({ chatState }) => chatState.activeGuild);
+  const guildOrder = useSelector(({ chatState }) => chatState.guildOrder);
   const dispatch = useDispatch();
   const openGuildAddModalDispatcher = useCallback(
     () => dispatch(openGuildAddModal()),
@@ -29,27 +30,29 @@ export default function GuildsPanel() {
   );
 
   const [list, setList] = useState(
-    Object.entries(guilds).map(([guildId, guild]) => ({
+    guildOrder.map(guildId => ({
       id: guildId,
-      name: guild.name,
-      icon: guild.icon || defaultAvatar
+      name: guilds[guildId].name,
+      icon: guilds[guildId].icon || defaultAvatar,
+      updatedIcon: guilds[guildId].updatedIcon
     }))
   );
 
   const listRefs = useRef([...Array(list.length)].map(() => React.createRef()));
 
   useEffect(() => {
-    listRefs.current = [...Array(Object.keys(guilds).length)].map(() =>
+    listRefs.current = [...Array(Object.keys(guildOrder).length)].map(() =>
       React.createRef()
     );
     setList(
-      Object.entries(guilds).map(([guildId, guild]) => ({
+      guildOrder.map(guildId => ({
         id: guildId,
-        name: guild.name,
-        icon: guild.icon || defaultAvatar
+        name: guilds[guildId].name,
+        icon: guilds[guildId].icon || defaultAvatar,
+        updatedIcon: guilds[guildId].updatedIcon
       }))
     );
-  }, [defaultAvatar, guilds]);
+  }, [defaultAvatar, guildOrder, guilds]);
 
   const onDragEnd = result => {
     if (result.destination) {
@@ -59,7 +62,7 @@ export default function GuildsPanel() {
         result.destination.index
       );
 
-      setList(items);
+      dispatch(setGuildOrder(items.map(item => item.id)));
     }
   };
 
@@ -109,7 +112,11 @@ export default function GuildsPanel() {
                           onClick={() => handleGuildSelect(guild.id)}
                         >
                           <img
-                            src={`${guild.icon}?${performance.now()}`}
+                            src={
+                              guild.updatedIcon
+                                ? `${guild.icon}?${guild.updatedIcon}`
+                                : guild.icon
+                            }
                             alt={`guild ${guild.name} icon`}
                             data-for="GuildsPanel--tooltip"
                             data-tip={guild.name}
@@ -142,6 +149,7 @@ export default function GuildsPanel() {
         <div
           data-for="GuildsPanel--tooltip"
           data-tip="Add a Guild"
+          role="button"
           onClick={openGuildAddModalDispatcher}
         >
           <i className="fas fa-plus fa-lg" />

@@ -1,22 +1,20 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable jsx-a11y/no-autofocus */
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateGuild } from "../../redux/actions";
 import SaveChangesBar from "../SaveChangesBar";
 import Input1 from "../Input1";
 import ImageUpload from "../ImageUpload";
 import "./GuildSettingsGeneral.css";
 
-export default function GuildSettingsGeneral({
-  name,
-  icon,
-  defaultIcon,
-  inviteCode,
-  handleSubmit,
-  apiLoading,
-  apiError
-}) {
+export default function GuildSettingsGeneral() {
+  const defaultIcon = useSelector(({ userState }) => userState.defaultAvatar);
+  const { name, icon } = useSelector(
+    ({ chatState }) => chatState.guilds[chatState.activeGuild]
+  );
+  const { chatApiLoading: apiLoading, chatApiError: apiError } = useSelector(
+    state => state.apiState
+  );
+  const dispatch = useDispatch();
   const [mounted, setMounted] = useState(false);
   const [saveChangesOpen, setSaveChangesOpen] = useState(false);
   const [saveChangesRequestClose, setSaveChangesRequestClose] = useState(false);
@@ -59,11 +57,13 @@ export default function GuildSettingsGeneral({
   };
 
   const saveChanges = () => {
-    handleSubmit({
-      name: guildName,
-      icon: uploadedImage,
-      removeIcon: displayedIcon === defaultIcon
-    });
+    dispatch(
+      updateGuild({
+        name: guildName,
+        icon: uploadedImage,
+        removeIcon: displayedIcon === defaultIcon
+      })
+    );
   };
 
   const resetChanges = () => {

@@ -1,7 +1,6 @@
 {
   "extends": [
     "react-app",
-    "airbnb",
     "plugin:eslint-comments/recommended",
     "plugin:promise/recommended",
     "plugin:jest/recommended",
@@ -41,7 +40,17 @@
     "react/prop-types": 0,
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "jsx-a11y/no-autofocus": 0,
+    "jsx-a11y/interactive-supports-focus": 0,
     "import/no-named-as-default": 0,
-    "no-empty": 0
+    "no-empty": 0,
+    "no-nested-ternary": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }

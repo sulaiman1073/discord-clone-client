@@ -4,6 +4,7 @@
   overflow-x: hidden;
   /* display: flex;
   flex-direction: column; */
+  scrollbar-color: var(--color-quaternary) var(--color-secondary);
 }
 
 .GuildSettingsChannels--container::-webkit-scrollbar {
@@ -33,10 +34,6 @@
   margin-left: 20px;
   margin-right: 20px;
   user-select: none;
-}
-
-.GuildSettingsChannels--channelList {
-  /* width: 100%; */
 }
 
 .GuildSettingsChannels--channel {

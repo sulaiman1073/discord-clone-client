@@ -10,9 +10,10 @@ const initChat = () => {
         localStorage.getItem("activeChannels")
       );
       const cachedDrafts = JSON.parse(localStorage.getItem("drafts"));
-      const cachedChannelsLastVisits = JSON.parse(
-        localStorage.getItem("channelsLastVisits")
+      const cachedLastChannelVisits = JSON.parse(
+        localStorage.getItem("lastChannelVisits")
       );
+      const cachedGuildOrder = JSON.parse(localStorage.getItem("guildOrder"));
 
       let response;
       dispatch(generalApiLoading());
@@ -57,20 +58,42 @@ const initChat = () => {
           ])
       );
 
-      const channelsLastVisits = Object.fromEntries(
+      const lastChannelVisits = Object.fromEntries(
         Object.values(channels)
           .map(channel => Object.keys(channel))
           .flat()
           .map(channelId => [
             channelId,
-            (cachedChannelsLastVisits && cachedChannelsLastVisits[channelId]) ||
+            (cachedLastChannelVisits && cachedLastChannelVisits[channelId]) ||
               null
           ])
       );
 
       if (activeChannel) {
-        channelsLastVisits[activeChannel] = new Date();
+        lastChannelVisits[activeChannel] = new Date();
       }
+
+      let guildIds = Object.keys(guilds);
+      let guildOrder = cachedGuildOrder || [];
+      let removeGuildIds = [];
+      let addGuildIds = [];
+
+      guildOrder.forEach(guildId => {
+        if (!guildIds.includes(guildId)) {
+          removeGuildIds.push(guildId);
+        }
+      });
+
+      guildIds.forEach(guildId => {
+        if (!guildOrder.includes(guildId)) {
+          addGuildIds.push(guildId);
+        }
+      });
+
+      guildOrder = guildOrder.filter(
+        guildId => !removeGuildIds.includes(guildId)
+      );
+      guildOrder.push(...addGuildIds);
 
       dispatch({
         type: INIT_CHAT,
@@ -83,7 +106,8 @@ const initChat = () => {
           activeChannel,
           activeChannels,
           drafts,
-          channelsLastVisits
+          lastChannelVisits,
+          guildOrder
         }
       });
       dispatch(generalApiSuccess());

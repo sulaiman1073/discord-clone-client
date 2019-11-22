@@ -33,18 +33,29 @@ let timeout;
 
 const websocketMiddleware = url => {
   return store => next => action => {
+    next(action);
+
     if (action.type === INIT_CHAT && !store.getState().wsState.connected) {
       const removeMemberTyping = (guildId, channelId, userId) => {
-        store.dispatch({
-          type: MEMBER_DELETE_TYPING,
-          payload: { guildId, channelId, userId }
-        });
+        const channelExists =
+          store.getState().chatState.channels[guildId] &&
+          store.getState().chatState.channels[guildId][channelId];
+        const memberExists =
+          store.getState().chatState.members[guildId] &&
+          store.getState().chatState.members[guildId][userId];
+
+        if (channelExists && memberExists) {
+          store.dispatch({
+            type: MEMBER_DELETE_TYPING,
+            payload: { guildId, channelId, userId }
+          });
+        }
       };
 
       const removeMemberTypingDebounced = debounceHashed(
         removeMemberTyping,
         function hashingFn(guildId, channelId, userId) {
-          return `${guildId}${channelId}${userId}`;
+          return `${channelId}${userId}`;
         },
         10000
       );
@@ -174,7 +185,6 @@ const websocketMiddleware = url => {
       socket.dontReconnect = true;
       socket.close();
     }
-    return next(action);
   };
 };
 

@@ -1,27 +1,4 @@
 const addGuild = (state, payload) => {
-  localStorage.setItem("activeGuild", JSON.stringify(payload.guildId));
-  localStorage.setItem(
-    "activeChannels",
-    JSON.stringify({
-      ...state.activeChannels,
-      [payload.guildId]: payload.channelId
-    })
-  );
-  localStorage.setItem(
-    "drafts",
-    JSON.stringify({
-      ...state.drafts,
-      [payload.channelId]: ""
-    })
-  );
-  localStorage.setItem(
-    "channelsLastVisits",
-    JSON.stringify({
-      ...state.channelsLastVisits,
-      [payload.channelId]: new Date()
-    })
-  );
-
   return {
     ...state,
     guilds: {
@@ -57,10 +34,11 @@ const addGuild = (state, payload) => {
       ...state.lastTypes,
       [payload.channelId]: null
     },
-    channelsLastVisits: {
-      ...state.channelsLastVisits,
+    lastChannelVisits: {
+      ...state.lastChannelVisits,
       [payload.channelId]: new Date()
-    }
+    },
+    guildOrder: [...state.guildOrder, payload.guildId]
   };
 };
 

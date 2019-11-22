@@ -1,3 +1,5 @@
+import uuidv4 from "uuid/v4";
+
 const updateMember = (state, payload) => {
   // rewrite, only change effected
 
@@ -14,7 +16,10 @@ const updateMember = (state, payload) => {
           ...(payload.discriminator && {
             discriminator: payload.discriminator
           }),
-          ...(payload.avatar !== undefined && { avatar: payload.avatar }),
+          ...(payload.avatar !== undefined && {
+            avatar: payload.avatar,
+            updatedAvatar: uuidv4()
+          }),
           ...(payload.status && { status: payload.status }),
           ...(payload.online && { online: payload.online })
         }

@@ -22,7 +22,6 @@ const register = registerInfo => {
       dispatch(userApiSuccess());
     } catch (error) {
       if (error.response) {
-        console.log("ERR", error.response.data.message);
         dispatch(userApiError(error.response.data.message));
       } else {
         dispatch(userApiError());

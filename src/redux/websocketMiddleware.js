@@ -77,12 +77,10 @@ const websocketMiddleware = url => {
       };
 
       socket.onopen = () => {
-        console.log("WEBSOCKET OPENED");
         clearInterval(interval);
       };
 
       socket.onclose = () => {
-        console.log("WEBSOCKET CLOSED");
         clearTimeout(timeout);
 
         store.dispatch({
@@ -101,13 +99,6 @@ const websocketMiddleware = url => {
         const parsedMessage = JSON.parse(message);
         const messageType = parsedMessage.type;
         const messagePayload = parsedMessage.payload;
-
-        if (messageType !== WS_PING) {
-          console.log("===");
-          console.log("TYPE: ", messageType);
-          console.log("PAYLOAD: ", messagePayload);
-          console.log("===");
-        }
 
         if (messageType === WS_HELLO) {
           store.dispatch({

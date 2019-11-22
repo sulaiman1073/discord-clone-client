@@ -38,7 +38,6 @@ const updateGuild = guildInfo => {
 
       dispatch(chatApiSuccess());
     } catch (error) {
-      console.log("ERRR", error);
       dispatch(chatApiError());
     }
   };

@@ -34,13 +34,15 @@ const middleware =
         require("redux-immutable-state-invariant").default(),
         thunk,
         localstorageMiddleware(),
-        websocketMiddleware(process.env.REACT_APP_WS_URL),
+        websocketMiddleware("ws://localhost:4000/ws"),
         routerMiddleware(history)
       ]
     : [
         thunk,
         localstorageMiddleware(),
-        websocketMiddleware(process.env.REACT_APP_WS_URL),
+        websocketMiddleware(
+          `wss://${window.location.hostname}:${window.location.port}/ws`
+        ),
         routerMiddleware(history)
       ];
 

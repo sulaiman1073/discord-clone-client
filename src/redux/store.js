@@ -41,7 +41,7 @@ const middleware =
         thunk,
         localstorageMiddleware(),
         websocketMiddleware(
-          `wss://${window.location.hostname}:${window.location.port}/ws`
+          `wss://${window.location.hostname}:${window.location.port}/ws/`
         ),
         routerMiddleware(history)
       ];

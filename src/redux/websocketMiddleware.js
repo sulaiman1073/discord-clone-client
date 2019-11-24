@@ -47,7 +47,7 @@ const websocketMiddleware = url => {
         if (channelExists && memberExists) {
           store.dispatch({
             type: MEMBER_DELETE_TYPING,
-            payload: { guildId, channelId, userId }
+            payload: { channelId, userId }
           });
         }
       };
